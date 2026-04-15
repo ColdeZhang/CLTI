@@ -310,11 +310,11 @@ This spec is narrow enough for a single implementation plan, while still leaving
 
 ## 17. Deployment Constraints
 
-The first release should be deployable as a static site on GitHub Pages under the repository subpath `CodingLanguageTypeIndicator`.
+The first release should be deployable as a static site on GitHub Pages, whether it is served from the default repository subpath or from a custom domain root.
 
 Deployment implications:
 
-1. Production assets should be built with the repository subpath as the base path.
+1. Production assets should use relative paths so the same build artifact works in both hosting modes.
 2. Client-side routing should avoid refresh-related 404 failures on GitHub Pages.
 3. The repository should include a GitHub Actions workflow that builds the app and publishes the generated static files to GitHub Pages.
 4. Local development should remain simple and should not require the repository subpath during normal `vite` development.

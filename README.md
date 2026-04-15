@@ -15,7 +15,7 @@ npm run dev
 npm run build
 ```
 
-Production builds use the repository subpath `/CodingLanguageTypeIndicator/`, so generated assets are ready for GitHub Pages.
+Production builds use relative asset URLs, so the same artifact works on a GitHub Pages repository subpath and on a custom domain root.
 
 ## GitHub Pages Deployment
 

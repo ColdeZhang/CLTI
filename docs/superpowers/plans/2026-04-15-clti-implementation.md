@@ -3183,7 +3183,7 @@ import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/CodingLanguageTypeIndicator/' : '/',
+  base: mode === 'production' ? './' : '/',
   plugins: [vue()],
   test: {
     include: ['tests/**/*.test.ts'],
@@ -3199,7 +3199,7 @@ Replace `src/router/index.ts` with:
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     { path: '/', name: 'landing', component: () => import('../views/LandingView.vue') },
     { path: '/intro', name: 'intro', component: () => import('../views/QuizIntroView.vue') },
@@ -3296,7 +3296,7 @@ npm run dev
 npm run build
 ```
 
-Production builds use the repository subpath `/CodingLanguageTypeIndicator/`, so generated assets are ready for GitHub Pages.
+Production builds use relative asset URLs, so the same artifact works on a GitHub Pages repository subpath and on a custom domain root.
 
 ## GitHub Pages Deployment
 
@@ -3314,7 +3314,7 @@ After that, every push to `master` will build and publish the site.
 - [ ] **Step 5: Verify the production build uses the repository subpath**
 
 Run: `npm run build`
-Expected: Build succeeds and generated asset URLs in `dist/index.html` start with `/CodingLanguageTypeIndicator/`.
+Expected: Build succeeds and generated asset URLs in `dist/index.html` use relative `./assets/...` paths.
 
 - [ ] **Step 6: Verify the test suite still passes**
 
