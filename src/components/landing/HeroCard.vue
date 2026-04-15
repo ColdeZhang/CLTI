@@ -9,9 +9,19 @@
       如果你是一门编程语言，你会是哪一种？<br />
       15 道趣味题，揭晓属于你的语言人格。
     </p>
-    <router-link to="/intro" class="hero-btn">
-      开始测试 →
-    </router-link>
+    <div class="hero-actions">
+      <router-link to="/intro" class="hero-btn">
+        开始测试 →
+      </router-link>
+      <a
+        class="hero-repo-link"
+        href="https://github.com/ColdeZhang/CLTI"
+        target="_blank"
+        rel="noreferrer"
+      >
+        查看仓库 / GitHub
+      </a>
+    </div>
   </div>
 </template>
 
@@ -53,9 +63,16 @@
   line-height: 1.8;
 }
 
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
 .hero-btn {
   display: inline-block;
-  margin-top: 32px;
   padding: 14px 40px;
   background: var(--color-accent);
   color: #fff;
@@ -68,6 +85,25 @@
 .hero-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 71, 87, 0.3);
+}
+
+.hero-repo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(76, 88, 102, 0.22);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.hero-repo-link:hover {
+  color: var(--color-accent);
+  border-color: rgba(255, 71, 87, 0.36);
 }
 
 @media (min-width: 768px) {
