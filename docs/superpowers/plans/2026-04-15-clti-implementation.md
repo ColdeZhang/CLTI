@@ -3165,6 +3165,171 @@ git commit -m "feat: add mobile polish, router guards, and production build veri
 
 ---
 
+### Task 17: GitHub Pages Deployment
+
+**Files:**
+- Modify: `vite.config.ts`
+- Modify: `src/router/index.ts`
+- Modify: `README.md`
+- Create: `.github/workflows/deploy-pages.yml`
+
+- [ ] **Step 1: Update the Vite base path for production builds**
+
+Replace `vite.config.ts` with:
+
+```ts
+/// <reference types="vitest" />
+import { defineConfig } from 'vitest/config'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/CodingLanguageTypeIndicator/' : '/',
+  plugins: [vue()],
+  test: {
+    include: ['tests/**/*.test.ts'],
+  },
+}))
+```
+
+- [ ] **Step 2: Switch router history mode for GitHub Pages compatibility**
+
+Replace `src/router/index.ts` with:
+
+```ts
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+const router = createRouter({
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: [
+    { path: '/', name: 'landing', component: () => import('../views/LandingView.vue') },
+    { path: '/intro', name: 'intro', component: () => import('../views/QuizIntroView.vue') },
+    { path: '/quiz', name: 'quiz', component: () => import('../views/QuizView.vue') },
+    { path: '/result', name: 'result', component: () => import('../views/ResultView.vue') },
+    { path: '/explore', name: 'explore', component: () => import('../views/ExploreView.vue') },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ],
+})
+
+export default router
+```
+
+- [ ] **Step 3: Create the GitHub Pages workflow**
+
+Create `.github/workflows/deploy-pages.yml` with:
+
+```yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+- [ ] **Step 4: Document the repository setting required by GitHub Pages**
+
+Replace `README.md` with:
+
+```md
+# Coding Language Type Indicator
+
+CLTI is a Vue 3 + TypeScript quiz app that matches users to a programming language persona and renders a shareable result poster.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Production Build
+
+```bash
+npm run build
+```
+
+Production builds use the repository subpath `/CodingLanguageTypeIndicator/`, so generated assets are ready for GitHub Pages.
+
+## GitHub Pages Deployment
+
+This repository includes a workflow at `.github/workflows/deploy-pages.yml` that deploys the Vite `dist/` output to GitHub Pages.
+
+Required repository setting:
+
+1. Open GitHub repository settings.
+2. Go to `Pages`.
+3. Set `Source` to `GitHub Actions`.
+
+After that, every push to `master` will build and publish the site.
+```
+
+- [ ] **Step 5: Verify the production build uses the repository subpath**
+
+Run: `npm run build`
+Expected: Build succeeds and generated asset URLs in `dist/index.html` start with `/CodingLanguageTypeIndicator/`.
+
+- [ ] **Step 6: Verify the test suite still passes**
+
+Run: `npx vitest run`
+Expected: All tests PASS.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add vite.config.ts src/router/index.ts README.md .github/workflows/deploy-pages.yml
+git commit -m "chore: add GitHub Pages deployment workflow"
+```
+
+---
+
 ## Self-Review Checklist
 
 | Spec Section | Covered By |

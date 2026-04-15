@@ -1,5 +1,30 @@
-# Vue 3 + TypeScript + Vite
+# Coding Language Type Indicator
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+CLTI is a Vue 3 + TypeScript quiz app that matches users to a programming language persona and renders a shareable result poster.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Production Build
+
+```bash
+npm run build
+```
+
+Production builds use the repository subpath `/CodingLanguageTypeIndicator/`, so generated assets are ready for GitHub Pages.
+
+## GitHub Pages Deployment
+
+This repository includes a workflow at `.github/workflows/deploy-pages.yml` that deploys the Vite `dist/` output to GitHub Pages.
+
+Required repository setting:
+
+1. Open GitHub repository settings.
+2. Go to `Pages`.
+3. Set `Source` to `GitHub Actions`.
+
+After that, every push to `master` will build and publish the site.

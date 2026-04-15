@@ -2,9 +2,10 @@
 import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/CodingLanguageTypeIndicator/' : '/',
   plugins: [vue()],
   test: {
     include: ['tests/**/*.test.ts'],
   },
-})
+}))

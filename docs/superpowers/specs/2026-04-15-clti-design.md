@@ -307,3 +307,14 @@ The implementation plan should be organized around a few separable workstreams:
 5. Final polish and mobile adaptation.
 
 This spec is narrow enough for a single implementation plan, while still leaving room for later expansion.
+
+## 17. Deployment Constraints
+
+The first release should be deployable as a static site on GitHub Pages under the repository subpath `CodingLanguageTypeIndicator`.
+
+Deployment implications:
+
+1. Production assets should be built with the repository subpath as the base path.
+2. Client-side routing should avoid refresh-related 404 failures on GitHub Pages.
+3. The repository should include a GitHub Actions workflow that builds the app and publishes the generated static files to GitHub Pages.
+4. Local development should remain simple and should not require the repository subpath during normal `vite` development.
