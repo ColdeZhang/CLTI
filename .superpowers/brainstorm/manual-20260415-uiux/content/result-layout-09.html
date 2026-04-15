@@ -1,0 +1,211 @@
+<h2>结果页布局</h2>
+<p class="subtitle">两种方案对比：A 长卡片海报 vs B 紧凑信息卡</p>
+<div style="display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;">
+
+  <!-- Option A: 长卡片海报 -->
+  <div class="mockup" style="flex:1; min-width:340px; max-width:420px; border:2px solid var(--border);">
+    <div class="mockup-header">A · 长卡片海报（一屏一故事）</div>
+    <div class="mockup-body" style="background:#FFFBF0; padding:0; min-height:800px;">
+      <div style="padding:24px 20px;">
+
+        <!-- Share-ready poster card -->
+        <div style="background:linear-gradient(145deg, #FFF5F5 0%, #FFFBF0 50%, #F0F9FF 100%); border-radius:24px; padding:32px 24px; box-shadow:0 8px 32px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.04);">
+
+          <!-- Header: Language Logo & Identity -->
+          <div style="text-align:center; margin-bottom:24px;">
+            <div style="font-size:4rem; margin-bottom:8px;">🦀</div>
+            <div style="font-size:2rem; font-weight:900; color:#2D3436; letter-spacing:0.02em;">Rust</div>
+            <div style="display:inline-block; background:#FF4757; color:white; font-size:0.85rem; font-weight:700; padding:4px 16px; border-radius:20px; margin-top:8px;">
+              完美主义守卫者
+            </div>
+          </div>
+
+          <!-- Meme hook -->
+          <div style="text-align:center; font-size:1.1rem; color:#636E72; font-style:italic; margin-bottom:28px; line-height:1.5; padding:0 8px;">
+            "编译器是我最好的朋友，<br>也是我唯一的朋友。"
+          </div>
+
+          <!-- Radar chart placeholder -->
+          <div style="background:white; border-radius:16px; padding:20px; margin-bottom:24px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:0.75rem; font-weight:700; color:#B2BEC3; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">五维档案</div>
+            <div style="position:relative; width:220px; height:220px; margin:0 auto;">
+              <!-- Pentagon outline -->
+              <svg viewBox="0 0 220 220" style="width:100%; height:100%;">
+                <!-- Background grid -->
+                <polygon points="110,20 195,75 175,170 45,170 25,75" fill="none" stroke="#E8E8E8" stroke-width="1"/>
+                <polygon points="110,50 172,88 158,155 62,155 48,88" fill="none" stroke="#E8E8E8" stroke-width="1"/>
+                <polygon points="110,80 148,102 140,140 80,140 72,102" fill="none" stroke="#E8E8E8" stroke-width="1"/>
+                <!-- Data polygon -->
+                <polygon points="110,28 188,78 155,165 55,130 35,75" fill="rgba(255,71,87,0.15)" stroke="#FF4757" stroke-width="2.5"/>
+                <!-- Dots -->
+                <circle cx="110" cy="28" r="4" fill="#FF4757"/>
+                <circle cx="188" cy="78" r="4" fill="#FF4757"/>
+                <circle cx="155" cy="165" r="4" fill="#FF4757"/>
+                <circle cx="55" cy="130" r="4" fill="#FF4757"/>
+                <circle cx="35" cy="75" r="4" fill="#FF4757"/>
+              </svg>
+              <!-- Labels -->
+              <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); font-size:0.7rem; font-weight:700; color:#2D3436;">秩序欲 95</div>
+              <div style="position:absolute; top:28%; right:-6px; font-size:0.7rem; font-weight:700; color:#2D3436;">掌控欲 88</div>
+              <div style="position:absolute; bottom:8%; right:10%; font-size:0.7rem; font-weight:700; color:#2D3436;">表达欲 72</div>
+              <div style="position:absolute; bottom:8%; left:4%; font-size:0.7rem; font-weight:700; color:#2D3436;">团队脑 60</div>
+              <div style="position:absolute; top:28%; left:-6px; font-size:0.7rem; font-weight:700; color:#2D3436;">行动派 35</div>
+            </div>
+          </div>
+
+          <!-- Match explanation -->
+          <div style="background:white; border-radius:16px; padding:20px; margin-bottom:24px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:0.75rem; font-weight:700; color:#B2BEC3; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px;">匹配解读</div>
+            <div style="font-size:0.95rem; color:#2D3436; line-height:1.7;">
+              你对代码质量有着近乎偏执的追求。在你看来，一个编译能通过的程序只是及格线，你要的是<strong>零运行时错误、零内存泄漏、零妥协</strong>。Rust 的所有权系统就是你的灵魂伴侣——严格，但值得。
+            </div>
+          </div>
+
+          <!-- Secondary matches -->
+          <div style="display:flex; gap:12px; margin-bottom:24px;">
+            <div style="flex:1; background:white; border-radius:14px; padding:16px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:0.65rem; color:#B2BEC3; font-weight:600; margin-bottom:6px;">最相近</div>
+              <div style="font-size:1.8rem;">⚙️</div>
+              <div style="font-size:0.85rem; font-weight:700; color:#2D3436;">C++</div>
+              <div style="font-size:0.7rem; color:#636E72;">老派掌控王</div>
+            </div>
+            <div style="flex:1; background:white; border-radius:14px; padding:16px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:0.65rem; color:#B2BEC3; font-weight:600; margin-bottom:6px;">最遥远</div>
+              <div style="font-size:1.8rem;">🐍</div>
+              <div style="font-size:0.85rem; font-weight:700; color:#2D3436;">Python</div>
+              <div style="font-size:0.7rem; color:#636E72;">万能胶水侠</div>
+            </div>
+          </div>
+
+          <!-- CLTI branding -->
+          <div style="text-align:center; padding-top:12px; border-top:1px solid rgba(0,0,0,0.06);">
+            <div style="font-size:0.7rem; color:#B2BEC3; font-weight:600;">CLTI · 代码人格测试</div>
+            <div style="font-size:0.6rem; color:#DFE6E9; margin-top:2px;">clti.lunadeer.tech</div>
+          </div>
+        </div>
+
+        <!-- Action buttons (outside sharable area) -->
+        <div style="display:flex; gap:12px; margin-top:20px;">
+          <button style="flex:1; background:#FF4757; color:white; border:none; padding:14px; border-radius:14px; font-size:0.95rem; font-weight:700; cursor:pointer; box-shadow:0 4px 12px rgba(255,71,87,0.3);">📸 保存海报分享</button>
+          <button style="flex:1; background:white; color:#2D3436; border:2px solid #E8E8E8; padding:14px; border-radius:14px; font-size:0.95rem; font-weight:700; cursor:pointer;">🔄 再测一次</button>
+        </div>
+        <button style="width:100%; background:transparent; color:#636E72; border:1px solid #E8E8E8; padding:12px; border-radius:14px; font-size:0.85rem; font-weight:600; cursor:pointer; margin-top:10px;">📖 查看完整语言图鉴</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: 紧凑信息卡 -->
+  <div class="mockup" style="flex:1; min-width:340px; max-width:420px; border:2px solid var(--border);">
+    <div class="mockup-header">B · 紧凑双卡（信息分层）</div>
+    <div class="mockup-body" style="background:#FFFBF0; padding:0; min-height:800px;">
+      <div style="padding:24px 20px;">
+
+        <!-- Hero Identity Card (compact, shareable part) -->
+        <div style="background:linear-gradient(135deg, #2D3436 0%, #636E72 100%); border-radius:24px; padding:28px 24px; color:white; position:relative; overflow:hidden; margin-bottom:16px;">
+          <!-- Decorative bg -->
+          <div style="position:absolute; top:-20px; right:-20px; font-size:8rem; opacity:0.06;">🦀</div>
+
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px; position:relative;">
+            <div style="font-size:3.5rem;">🦀</div>
+            <div>
+              <div style="font-size:1.8rem; font-weight:900; letter-spacing:0.02em;">Rust</div>
+              <div style="display:inline-block; background:rgba(255,71,87,0.9); font-size:0.8rem; font-weight:700; padding:3px 12px; border-radius:16px; margin-top:4px;">
+                完美主义守卫者
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:1.05rem; font-style:italic; opacity:0.85; line-height:1.5; margin-bottom:20px; position:relative;">
+            "编译器是我最好的朋友，也是我唯一的朋友。"
+          </div>
+
+          <!-- Mini dimension bars -->
+          <div style="display:flex; flex-direction:column; gap:8px; position:relative;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.7rem; width:48px; opacity:0.7;">秩序欲</span>
+              <div style="flex:1; height:6px; background:rgba(255,255,255,0.15); border-radius:3px;">
+                <div style="width:95%; height:100%; background:#FF4757; border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.65rem; opacity:0.6;">95</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.7rem; width:48px; opacity:0.7;">掌控欲</span>
+              <div style="flex:1; height:6px; background:rgba(255,255,255,0.15); border-radius:3px;">
+                <div style="width:88%; height:100%; background:#FF6B81; border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.65rem; opacity:0.6;">88</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.7rem; width:48px; opacity:0.7;">表达欲</span>
+              <div style="flex:1; height:6px; background:rgba(255,255,255,0.15); border-radius:3px;">
+                <div style="width:72%; height:100%; background:#FFA502; border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.65rem; opacity:0.6;">72</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.7rem; width:48px; opacity:0.7;">团队脑</span>
+              <div style="flex:1; height:6px; background:rgba(255,255,255,0.15); border-radius:3px;">
+                <div style="width:60%; height:100%; background:#1E90FF; border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.65rem; opacity:0.6;">60</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.7rem; width:48px; opacity:0.7;">行动派</span>
+              <div style="flex:1; height:6px; background:rgba(255,255,255,0.15); border-radius:3px;">
+                <div style="width:35%; height:100%; background:#2ED573; border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.65rem; opacity:0.6;">35</span>
+            </div>
+          </div>
+
+          <!-- CLTI branding (inside shareable card) -->
+          <div style="text-align:right; margin-top:16px; opacity:0.4; font-size:0.6rem; font-weight:600; position:relative;">
+            CLTI · clti.lunadeer.tech
+          </div>
+        </div>
+
+        <!-- Detail expansion card -->
+        <div style="background:white; border-radius:20px; padding:24px; box-shadow:0 4px 16px rgba(0,0,0,0.05);">
+          <!-- Match explanation -->
+          <div style="margin-bottom:20px;">
+            <div style="font-size:0.75rem; font-weight:700; color:#B2BEC3; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">匹配解读</div>
+            <div style="font-size:0.95rem; color:#2D3436; line-height:1.7;">
+              你对代码质量有着近乎偏执的追求。在你看来，一个编译能通过的程序只是及格线，你要的是<strong>零运行时错误、零内存泄漏、零妥协</strong>。Rust 的所有权系统就是你的灵魂伴侣——严格，但值得。
+            </div>
+          </div>
+
+          <!-- Secondary matches (horizontal) -->
+          <div style="display:flex; gap:12px; margin-bottom:20px;">
+            <div style="flex:1; background:#FFFBF0; border-radius:12px; padding:14px; text-align:center;">
+              <div style="font-size:0.65rem; color:#B2BEC3; font-weight:600; margin-bottom:4px;">最相近</div>
+              <div style="font-size:1.5rem;">⚙️</div>
+              <div style="font-size:0.85rem; font-weight:700; color:#2D3436;">C++</div>
+            </div>
+            <div style="flex:1; background:#FFFBF0; border-radius:12px; padding:14px; text-align:center;">
+              <div style="font-size:0.65rem; color:#B2BEC3; font-weight:600; margin-bottom:4px;">最遥远</div>
+              <div style="font-size:1.5rem;">🐍</div>
+              <div style="font-size:0.85rem; font-weight:700; color:#2D3436;">Python</div>
+            </div>
+          </div>
+
+          <!-- CTA buttons -->
+          <div style="display:flex; gap:10px;">
+            <button style="flex:1; background:#FF4757; color:white; border:none; padding:13px; border-radius:12px; font-size:0.9rem; font-weight:700; cursor:pointer;">📸 保存海报</button>
+            <button style="flex:1; background:#FFFBF0; color:#2D3436; border:2px solid #E8E8E8; padding:13px; border-radius:12px; font-size:0.9rem; font-weight:700; cursor:pointer;">🔄 再测一次</button>
+          </div>
+          <button style="width:100%; background:transparent; color:#636E72; border:1px solid #E8E8E8; padding:11px; border-radius:12px; font-size:0.8rem; font-weight:600; cursor:pointer; margin-top:10px;">📖 查看完整语言图鉴</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:24px; padding:20px; background:rgba(255,71,87,0.05); border-radius:12px; border-left:4px solid #FF4757;">
+  <strong>差异说明：</strong>
+  <ul style="margin:8px 0 0; padding-left:20px; line-height:1.8; color:#636E72;">
+    <li><strong>A 长卡片海报</strong>：整张卡片就是分享海报，浅色主调，雷达图（五角形）展示维度，信息量大但统一</li>
+    <li><strong>B 紧凑双卡</strong>：上方深色英雄卡（含条形维度图）为分享截图区，下方白卡放详细解读，信息分层更紧凑</li>
+  </ul>
+</div>

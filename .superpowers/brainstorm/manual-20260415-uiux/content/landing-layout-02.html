@@ -1,0 +1,103 @@
+<h2>Landing 页面布局</h2>
+<p class="subtitle">基于明亮卡通风基调，选择首页的信息结构和视觉重心</p>
+
+<div class="split">
+
+  <!-- Option A: 居中大标题 -->
+  <div class="mockup" data-choice="a" onclick="toggleSelect(this)" style="cursor:pointer; border: 2px solid var(--border);">
+    <div class="mockup-header">方案 A · 居中英雄区</div>
+    <div class="mockup-body" style="background:#FFFBF0; padding:0; min-height: 420px;">
+      <!-- Top nav -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid #F0E6D3;">
+        <span style="font-weight:700; font-size:0.85rem; color:#FF4757;">CLTI</span>
+        <span style="font-size:0.7rem; color:#B2BEC3;">v1.0</span>
+      </div>
+      <!-- Hero -->
+      <div style="text-align:center; padding:50px 24px 30px;">
+        <div style="font-size:0.7rem; color:#636E72; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px;">Coding Language Type Indicator</div>
+        <div style="font-size:1.6rem; font-weight:900; color:#2D3436; line-height:1.3; margin-bottom:8px;">你骨子里<br>是哪门编程语言？</div>
+        <div style="font-size:0.85rem; color:#636E72; margin-bottom:24px;">回答几个问题，揭晓属于你的代码人格</div>
+        <div style="display:inline-block; background:#FF4757; color:white; padding:12px 32px; border-radius:24px; font-weight:700; font-size:0.9rem;">开始测试 →</div>
+      </div>
+      <!-- Bottom decoration -->
+      <div style="display:flex; justify-content:center; gap:8px; padding:16px; flex-wrap:wrap;">
+        <span style="background:#E8F5E9; color:#00B894; padding:3px 10px; border-radius:12px; font-size:0.65rem;">Python</span>
+        <span style="background:#FFE8CC; color:#E17055; padding:3px 10px; border-radius:12px; font-size:0.65rem;">Rust</span>
+        <span style="background:#DFE6E9; color:#636E72; padding:3px 10px; border-radius:12px; font-size:0.65rem;">Go</span>
+        <span style="background:#E8F0FE; color:#5B86E5; padding:3px 10px; border-radius:12px; font-size:0.65rem;">TypeScript</span>
+        <span style="background:#FFF3E0; color:#F0932B; padding:3px 10px; border-radius:12px; font-size:0.65rem;">JavaScript</span>
+        <span style="background:#F3E5F5; color:#9B59B6; padding:3px 10px; border-radius:12px; font-size:0.65rem;">Haskell</span>
+        <span style="background:#E3F2FD; color:#2980B9; padding:3px 10px; border-radius:12px; font-size:0.65rem;">C++</span>
+        <span style="background:#FCE4EC; color:#E84393; padding:3px 10px; border-radius:12px; font-size:0.65rem;">还有更多…</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: 左文右图 -->
+  <div class="mockup" data-choice="b" onclick="toggleSelect(this)" style="cursor:pointer; border: 2px solid var(--border);">
+    <div class="mockup-header">方案 B · 左文右图分栏</div>
+    <div class="mockup-body" style="background:#FFFBF0; padding:0; min-height: 420px;">
+      <!-- Top nav -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid #F0E6D3;">
+        <span style="font-weight:700; font-size:0.85rem; color:#FF4757;">CLTI</span>
+        <div style="display:flex; gap:16px; font-size:0.7rem; color:#B2BEC3;">
+          <span>关于</span><span>语言图鉴</span>
+        </div>
+      </div>
+      <!-- Split content -->
+      <div style="display:flex; min-height:380px;">
+        <!-- Left -->
+        <div style="flex:1; padding:40px 20px 20px 24px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:0.6rem; color:#B2BEC3; text-transform:uppercase; letter-spacing:2px; margin-bottom:10px;">CLTI · 代码人格测试</div>
+          <div style="font-size:1.3rem; font-weight:900; color:#2D3436; line-height:1.3; margin-bottom:8px;">测一测你的<br>编程语言灵魂</div>
+          <div style="font-size:0.8rem; color:#636E72; margin-bottom:20px;">25 种语言 · 5 大维度 · 3 分钟出结果</div>
+          <div style="display:inline-block; background:#FF4757; color:white; padding:10px 24px; border-radius:20px; font-weight:700; font-size:0.8rem; width:fit-content;">开始测试</div>
+        </div>
+        <!-- Right: floating language cards -->
+        <div style="flex:1; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:20px; right:10px; background:white; border-radius:12px; padding:10px 14px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:rotate(3deg);">
+            <div style="font-weight:700; font-size:0.8rem; color:#FF4757;">Python 🐍</div>
+            <div style="font-size:0.6rem; color:#636E72;">行动派 · 团队脑</div>
+          </div>
+          <div style="position:absolute; top:100px; right:50px; background:white; border-radius:12px; padding:10px 14px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:rotate(-2deg);">
+            <div style="font-weight:700; font-size:0.8rem; color:#5B86E5;">TypeScript 🛡️</div>
+            <div style="font-size:0.6rem; color:#636E72;">秩序欲 · 团队脑</div>
+          </div>
+          <div style="position:absolute; top:190px; right:15px; background:white; border-radius:12px; padding:10px 14px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:rotate(1deg);">
+            <div style="font-weight:700; font-size:0.8rem; color:#E17055;">Rust 🦀</div>
+            <div style="font-size:0.6rem; color:#636E72;">掌控欲 · 秩序欲</div>
+          </div>
+          <div style="position:absolute; top:270px; right:40px; background:white; border-radius:12px; padding:10px 14px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:rotate(-3deg);">
+            <div style="font-weight:700; font-size:0.8rem; color:#00B894;">Go 🏃</div>
+            <div style="font-size:0.6rem; color:#636E72;">行动派 · 秩序欲</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top: 1.5rem;">
+  <div class="section">
+    <div class="label">对比要点</div>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>A · 居中英雄区</h4>
+        <ul>
+          <li>信息层次简单直接</li>
+          <li>移动端天然适配</li>
+          <li>测试站最经典布局</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>B · 左文右图分栏</h4>
+        <ul>
+          <li>视觉上更有"产品感"</li>
+          <li>浮动语言卡片暗示内容丰富</li>
+          <li>桌面端更有层次，但需移动端适配</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

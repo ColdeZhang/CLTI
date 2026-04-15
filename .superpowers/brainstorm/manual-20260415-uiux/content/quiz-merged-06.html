@@ -1,0 +1,87 @@
+<h2>答题卡片 · 合并方案</h2>
+<p class="subtitle">2×2 网格卡片，图标 + 标题 + 描述，内容居左对齐</p>
+
+<div class="mockup" style="border: 2px solid var(--border);">
+  <div class="mockup-header">Quiz · 2×2 网格 · 左对齐 · 图标+标题+描述</div>
+  <div class="mockup-body" style="background:#FFFBF0; padding:0; min-height:500px;">
+    <!-- Progress bar -->
+    <div style="padding:16px 20px 8px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+        <span style="font-size:0.65rem; color:#B2BEC3;">Q5 / 15</span>
+        <span style="font-size:0.6rem; color:#B2BEC3;">正在编译你的灵魂…</span>
+      </div>
+      <div style="display:flex; gap:4px;">
+        <div style="flex:1; height:4px; background:#FF4757; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#FF4757; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#FF4757; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#FF4757; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#FFD1D1; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+        <div style="flex:1; height:4px; background:#E8E8E8; border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <!-- Question area -->
+    <div style="padding:20px 24px;">
+      <!-- Question card -->
+      <div style="background:white; border-radius:20px; padding:28px 24px; box-shadow:0 4px 16px rgba(0,0,0,0.05);">
+        <!-- Question text -->
+        <div style="font-size:1.15rem; font-weight:800; color:#2D3436; line-height:1.4; margin-bottom:24px;">
+          你的团队要启动一个新项目，<br>你第一反应想做什么？
+        </div>
+
+        <!-- 2x2 Grid options, left-aligned -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+          <!-- Option A -->
+          <div style="background:#FFFBF0; border:2px solid #E8E8E8; border-radius:14px; padding:16px; cursor:pointer; text-align:left;">
+            <div style="font-size:1.3rem; margin-bottom:6px;">📋</div>
+            <div style="font-size:0.85rem; color:#2D3436; font-weight:700; margin-bottom:3px;">写详细方案</div>
+            <div style="font-size:0.72rem; color:#636E72; line-height:1.4;">先写一份详细的方案文档和技术选型，谋定而后动</div>
+          </div>
+
+          <!-- Option B (selected state) -->
+          <div style="background:#FFF0F0; border:2px solid #FF4757; border-radius:14px; padding:16px; cursor:pointer; text-align:left; box-shadow:0 2px 8px rgba(255,71,87,0.12);">
+            <div style="font-size:1.3rem; margin-bottom:6px;">⚡</div>
+            <div style="font-size:0.85rem; color:#2D3436; font-weight:700; margin-bottom:3px;">直接开干</div>
+            <div style="font-size:0.72rem; color:#636E72; line-height:1.4;">直接开始写代码，边做边想，先跑起来再说</div>
+          </div>
+
+          <!-- Option C -->
+          <div style="background:#FFFBF0; border:2px solid #E8E8E8; border-radius:14px; padding:16px; cursor:pointer; text-align:left;">
+            <div style="font-size:1.3rem; margin-bottom:6px;">🏗️</div>
+            <div style="font-size:0.85rem; color:#2D3436; font-weight:700; margin-bottom:3px;">搭好框架</div>
+            <div style="font-size:0.72rem; color:#636E72; line-height:1.4;">先搭好架子和规范，建立秩序再让大家一起推进</div>
+          </div>
+
+          <!-- Option D -->
+          <div style="background:#FFFBF0; border:2px solid #E8E8E8; border-radius:14px; padding:16px; cursor:pointer; text-align:left;">
+            <div style="font-size:1.3rem; margin-bottom:6px;">🔬</div>
+            <div style="font-size:0.85rem; color:#2D3436; font-weight:700; margin-bottom:3px;">研究新方法</div>
+            <div style="font-size:0.72rem; color:#636E72; line-height:1.4;">看看有没有什么优雅的新方法可以试，必须讲究</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 1.5rem;">
+  <div class="section">
+    <div class="label">设计说明</div>
+    <p style="font-size: 0.85rem; color: var(--text-secondary);">
+      合并方案：B 的 2×2 网格和 emoji 图标，配合 A 的"可容纳稍长描述"和左对齐阅读习惯。
+      每个选项卡片内容为：图标 → 标题（粗体）→ 描述文字（小字灰色），全部左对齐。
+      选中状态高亮显示（红色边框 + 浅红背景 + 微阴影）。
+    </p>
+  </div>
+</div>

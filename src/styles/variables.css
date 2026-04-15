@@ -1,0 +1,16 @@
+:root {
+  --color-bg: #FFFBF0;
+  --color-accent: #FF4757;
+  --color-accent-light: rgba(255, 71, 87, 0.08);
+  --color-accent-border: rgba(255, 71, 87, 0.4);
+  --color-card: #FFFFFF;
+  --color-text: #2D3436;
+  --color-text-secondary: #636E72;
+  --color-text-muted: #B2BEC3;
+  --color-border: #E8E8E8;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.1);
+  --radius-sm: 14px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+}
