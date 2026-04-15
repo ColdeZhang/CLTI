@@ -54,12 +54,38 @@ describe('findMatch', () => {
     expect(findMatch(user, langs, dims).id).toBe('alpha')
   })
 
+  it('prefers relative preference shape over raw score magnitude', () => {
+    const specialist = makeLang('specialist', {
+      order: 0.9,
+      control: 0.1,
+      expression: 0.1,
+      teamwork: 0.1,
+      action: 0.1,
+    })
+    const centroid = makeLang('centroid', {
+      order: 0.25,
+      control: 0.25,
+      expression: 0.25,
+      teamwork: 0.25,
+      action: 0.25,
+    })
+    const user = {
+      order: 0.45,
+      control: 0.05,
+      expression: 0.05,
+      teamwork: 0.05,
+      action: 0.05,
+    }
+
+    expect(findMatch(user, [specialist, centroid], dims).id).toBe('specialist')
+  })
+
   it('uses alphabetical tie-break when distances are equal', () => {
     const user = { order: 0.5, control: 0.5, expression: 0, teamwork: 0, action: 0 }
     const dA = euclideanDistance(user, langA.vector, dims)
     const dB = euclideanDistance(user, langB.vector, dims)
     expect(dA).toBeCloseTo(dB)
-    expect(findMatch(user, langs, dims).id).toBe('alpha')
+    expect(findMatch(user, [langA, langB], dims).id).toBe('alpha')
   })
 
   it('returns the only language if list has one', () => {

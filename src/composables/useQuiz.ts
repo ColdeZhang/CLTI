@@ -3,7 +3,12 @@ import { questions } from '../data/questions'
 import { languages } from '../data/languages'
 import { DIMENSIONS, DIMENSION_IDS } from '../data/dimensions'
 import { accumulateScores, computeMaxScores, normalizeScores } from '../engine/scoring'
-import { findMatch, findClosestAlternative, findMostDistant } from '../engine/matching'
+import {
+  findMatch,
+  findClosestAlternative,
+  findMostDistant,
+  normalizeRelativeVector,
+} from '../engine/matching'
 import type { MatchResult } from '../types'
 
 const STORAGE_KEY = 'clti-quiz-state'
@@ -83,9 +88,12 @@ const selectedOption = computed(() => {
 })
 
 function computeTypeCode(scores: Record<string, number>): string {
+  const relativeScores = normalizeRelativeVector(scores, DIMENSION_IDS)
+  const threshold = 1 / DIMENSIONS.length
+
   return DIMENSIONS.map(dim => {
-    const v = scores[dim.id] ?? 0
-    return v >= 0.5 ? dim.letterHigh : dim.letterLow
+    const v = relativeScores[dim.id] ?? 0
+    return v > threshold ? dim.letterHigh : dim.letterLow
   }).join('')
 }
 
@@ -94,11 +102,12 @@ function getResult(): MatchResult | null {
   const rawScores = accumulateScores(questions, state.answers)
   const maxScores = computeMaxScores(questions)
   const userVector = normalizeScores(rawScores, maxScores)
-  const language = findMatch(userVector, languages, DIMENSION_IDS)
-  const closestAlternative = findClosestAlternative(userVector, languages, DIMENSION_IDS, language.id)
-  const mostDistant = findMostDistant(userVector, languages, DIMENSION_IDS)
-  const typeCode = computeTypeCode(userVector)
-  return { language, scores: userVector, closestAlternative, mostDistant, typeCode }
+  const relativeScores = normalizeRelativeVector(userVector, DIMENSION_IDS)
+  const language = findMatch(relativeScores, languages, DIMENSION_IDS)
+  const closestAlternative = findClosestAlternative(relativeScores, languages, DIMENSION_IDS, language.id)
+  const mostDistant = findMostDistant(relativeScores, languages, DIMENSION_IDS)
+  const typeCode = computeTypeCode(relativeScores)
+  return { language, scores: relativeScores, closestAlternative, mostDistant, typeCode }
 }
 
 export function useQuiz() {
