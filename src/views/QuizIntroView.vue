@@ -131,4 +131,15 @@
 .intro-back:hover {
   color: var(--color-text-secondary);
 }
+
+@media (min-width: 768px) {
+  .intro-card {
+    max-width: 580px;
+    padding: 48px 40px;
+  }
+
+  .intro-title {
+    font-size: 2rem;
+  }
+}
 </style>

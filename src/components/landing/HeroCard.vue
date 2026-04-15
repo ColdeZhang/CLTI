@@ -69,4 +69,23 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 71, 87, 0.3);
 }
+
+@media (min-width: 768px) {
+  .hero-card {
+    max-width: 540px;
+    padding: 56px 48px;
+  }
+
+  .hero-title {
+    font-size: 3.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+  }
+}
 </style>

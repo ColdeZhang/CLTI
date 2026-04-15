@@ -187,4 +187,10 @@ function cardClass(lang: LanguageProfile) {
   border-radius: 50px;
   color: var(--color-text-secondary);
 }
+
+@media (min-width: 768px) {
+  .explore-page {
+    max-width: 960px;
+  }
+}
 </style>

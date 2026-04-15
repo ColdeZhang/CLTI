@@ -105,4 +105,11 @@ function retake() {
   border-color: var(--color-accent-border);
   box-shadow: var(--shadow-card);
 }
+
+@media (min-width: 768px) {
+  .result-actions {
+    flex-direction: row;
+    max-width: 600px;
+  }
+}
 </style>

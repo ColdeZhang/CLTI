@@ -2,6 +2,8 @@ export interface Dimension {
   id: string
   publicName: string
   technicalName: string
+  letterHigh: string
+  letterLow: string
 }
 
 export interface QuestionOption {
@@ -37,4 +39,5 @@ export interface MatchResult {
   scores: Record<string, number>
   closestAlternative: LanguageProfile
   mostDistant: LanguageProfile
+  typeCode: string
 }

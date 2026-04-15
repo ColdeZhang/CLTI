@@ -1,7 +1,7 @@
 import { reactive, computed } from 'vue'
 import { questions } from '../data/questions'
 import { languages } from '../data/languages'
-import { DIMENSION_IDS } from '../data/dimensions'
+import { DIMENSIONS, DIMENSION_IDS } from '../data/dimensions'
 import { accumulateScores, computeMaxScores, normalizeScores } from '../engine/scoring'
 import { findMatch, findClosestAlternative, findMostDistant } from '../engine/matching'
 import type { MatchResult } from '../types'
@@ -65,6 +65,15 @@ function nextQuestion(): void {
   }
 }
 
+function prevQuestion(): void {
+  if (state.currentIndex > 0) {
+    state.currentIndex--
+    save()
+  }
+}
+
+const isFirstQuestion = computed(() => state.currentIndex === 0)
+
 const currentQuestion = computed(() => questions[state.currentIndex])
 const progress = computed(() => (state.currentIndex + 1) / questions.length)
 const isLastQuestion = computed(() => state.currentIndex === questions.length - 1)
@@ -72,6 +81,13 @@ const selectedOption = computed(() => {
   const qId = currentQuestion.value?.id
   return qId !== undefined ? state.answers[qId] : undefined
 })
+
+function computeTypeCode(scores: Record<string, number>): string {
+  return DIMENSIONS.map(dim => {
+    const v = scores[dim.id] ?? 0
+    return v >= 0.5 ? dim.letterHigh : dim.letterLow
+  }).join('')
+}
 
 function getResult(): MatchResult | null {
   if (!state.completed) return null
@@ -81,7 +97,8 @@ function getResult(): MatchResult | null {
   const language = findMatch(userVector, languages, DIMENSION_IDS)
   const closestAlternative = findClosestAlternative(userVector, languages, DIMENSION_IDS, language.id)
   const mostDistant = findMostDistant(userVector, languages, DIMENSION_IDS)
-  return { language, scores: userVector, closestAlternative, mostDistant }
+  const typeCode = computeTypeCode(userVector)
+  return { language, scores: userVector, closestAlternative, mostDistant, typeCode }
 }
 
 export function useQuiz() {
@@ -90,12 +107,14 @@ export function useQuiz() {
     currentQuestion,
     progress,
     isLastQuestion,
+    isFirstQuestion,
     selectedOption,
     totalQuestions: questions.length,
     restore,
     reset,
     selectOption,
     nextQuestion,
+    prevQuestion,
     getResult,
   }
 }

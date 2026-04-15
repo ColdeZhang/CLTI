@@ -10,11 +10,13 @@ const {
   state,
   currentQuestion,
   isLastQuestion,
+  isFirstQuestion,
   selectedOption,
   totalQuestions,
   restore,
   selectOption,
   nextQuestion,
+  prevQuestion,
 } = useQuiz()
 
 onMounted(() => {
@@ -56,13 +58,22 @@ function handleNext() {
         />
       </div>
 
-      <button
-        class="quiz-next"
-        :disabled="selectedOption === undefined"
-        @click="handleNext"
-      >
-        {{ isLastQuestion ? '查看结果 →' : '下一题 →' }}
-      </button>
+      <div class="quiz-actions">
+        <button
+          class="quiz-prev"
+          :disabled="isFirstQuestion"
+          @click="prevQuestion"
+        >
+          ← 上一题
+        </button>
+        <button
+          class="quiz-next"
+          :disabled="selectedOption === undefined"
+          @click="handleNext"
+        >
+          {{ isLastQuestion ? '查看结果 →' : '下一题 →' }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -103,10 +114,36 @@ function handleNext() {
   gap: 14px;
 }
 
-.quiz-next {
-  display: block;
-  width: 100%;
+.quiz-actions {
   margin-top: 28px;
+  display: flex;
+  gap: 12px;
+}
+
+.quiz-prev {
+  flex-shrink: 0;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.quiz-prev:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quiz-prev:not(:disabled):hover {
+  border-color: var(--color-accent-border);
+  color: var(--color-text);
+}
+
+.quiz-next {
+  flex: 1;
   padding: 14px;
   font-size: 1.05rem;
   font-weight: 600;
@@ -129,6 +166,16 @@ function handleNext() {
 @media (max-width: 480px) {
   .quiz-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .quiz-container {
+    max-width: 720px;
+  }
+
+  .quiz-question {
+    font-size: 1.5rem;
   }
 }
 </style>
